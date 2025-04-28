@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Quiz App</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+#quiz-container,
+#score-container {
+  margin-top: 50px;
+}
+
+h1, h2 {
+  margin: 20px 0;
+}
+
+#timer {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Button styles */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 10px auto;
+  display: block;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+#next-button {
+  background-color: #008CBA;
+  color: #fff;
+}
+
+/* Checkbox option styles */
+.option {
+  margin-top: 10px;
+  background:  #008CBA;
+  height: 5vh;
+  cursor: pointer;
+}
+
+.option + label {
+  display: inline-block;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+  width: 80%;
+}
+
+.option:checked + label {
+  background-color: #333;
+  color: #ddd;
+}
+  </style>
+</head>
+<body onload="startQuiz()">
+
+  <div id="quiz-container">
+    <h1>Simple Quiz App</h1>
+    <p id="timer">Time Left: 15s</p>
+    <div id="question-container">
+      <h2 id="question"></h2>
+      <div>
+        <input type="checkbox" class="option" onclick="checkAnswer(this)">
+        <label></label>
+      </div>
+      <div>
+        <input type="checkbox" class="option" onclick="checkAnswer(this)">
+        <label></label>
+      </div>
+      <div>
+        <input type="checkbox" class="option" onclick="checkAnswer(this)">
+        <label></label>
+      </div>
+      <div>
+        <input type="checkbox" class="option" onclick="checkAnswer(this)">
+        <label></label>
+      </div>
+    </div>
+    <button id="next-button" onclick="nextQuestion()" disabled>
+      Next Question
+    </button>
+  </div>
+
+  <div id="score-container" style="display: none;">
+    <h2>Quiz Finished!</h2>
+    <p id="final-score"></p>
+    <button onclick="startQuiz()">Start Again</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
